@@ -9,7 +9,6 @@ import ImageUpload from '../../../components/ImageUpload';
 
 const EMPTY = { name: '', logo: '', isActive: true };
 const ROWS_PER_PAGE = 5;
-
 const PRESETS = [
   'HP', 'Dell', 'Lenovo', 'ASUS', 'Acer', 'Apple',
   'Samsung', 'Sony', 'Canon', 'Epson', 'Logitech', 'MSI',

@@ -23,7 +23,7 @@ export default function FeatureBar() {
   if (loading || features.length === 0) return null;
 
   return (
-    <Container fluid className="px-md-4 mb-5">
+    <Container fluid className="px-0 px-sm-2 px-md-4 my-4">
       <div
         className="rounded-4 p-4 p-md-5 shadow-sm"
         style={{

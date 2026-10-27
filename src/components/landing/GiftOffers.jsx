@@ -13,7 +13,7 @@ export default function GiftOffers({ products }) {
   const hasMore = products.length > INITIAL_LIMIT;
 
   return (
-    <Container fluid className="px-3 px-md-4 my-4">
+    <Container fluid className="px-0 px-sm-2 px-md-4 my-4">
       <div
         className="p-3 p-md-4 bg-white"
         style={{

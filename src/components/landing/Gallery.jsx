@@ -77,7 +77,7 @@ export default function Gallery() {
   const hasPrev = page > 0;
 
   return (
-    <Container fluid className="px-2 px-sm-3 px-md-4 my-4 gallery-container">
+    <Container fluid className="px-0 px-sm-2 px-md-4 my-4 gallery-container">
 
       {/* HEADER */}
       <div className="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">

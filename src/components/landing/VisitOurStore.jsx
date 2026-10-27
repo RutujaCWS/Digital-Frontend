@@ -27,14 +27,14 @@ export default function VisitOurStore({ settings }) {
 
   return (
     <Card
-      className="border-0 h-100"
-      style={{
-        borderRadius: '20px',
-        background: '#ffffff',
-        border: '1px solid #e2e8f0'
-      }}
-    >
-      <Card.Body className="p-4">
+  className="border-0 h-100 p-0"
+  style={{
+    borderRadius: '20px',
+    background: '#ffffff',
+    border: '1px solid #e2e8f0'
+  }}
+>
+      <Card.Body className="p-3 p-md-4">
         {/* HEADER */}
         <div className="d-flex align-items-center gap-2 mb-4">
           <span style={{ fontSize: '1.2rem' }}>📍</span>

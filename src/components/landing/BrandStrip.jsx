@@ -20,7 +20,7 @@ export default function BrandStrip() {
   if (loading || brands.length === 0) return null;
 
   return (
-    <Container fluid className="px-3 px-md-4 my-4">
+    <Container fluid className="px-0 px-sm-2 px-md-4 my-4">
       <Card className="border-0 shadow-sm" style={{ borderRadius: '16px' }}>
         <Card.Body className="p-4 p-md-5">
           {/* HEADER */}

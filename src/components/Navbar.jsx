@@ -75,9 +75,13 @@ export default function Navbar() {
             style={{ lineHeight: 1 }}
           >
             <span
-              className="fw-bold fst-italic"
+              className="fw-bold fst-italic d-block"
               style={{
                 fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
+                lineHeight: '1.3', 
+                paddingBottom: '3px',
+                paddingRight: '2px', 
+                
                 background: 'linear-gradient(135deg, #1e40af, #3b82f6)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',

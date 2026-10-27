@@ -181,7 +181,7 @@ export default function Landing() {
 
         {giftProducts.length > 0 && <GiftOffers products={giftProducts} />}
 
-        <div className="px-3 px-md-4 my-4">
+        <div className="px-0 px-sm-2 px-md-4 my-4">
   <div
     className="p-3 p-md-4 bg-white"
     style={{
@@ -206,10 +206,11 @@ export default function Landing() {
         <FeatureBar />
 
         <Gallery />
-        <Container fluid className="px-3 px-md-4 my-4">
-  <Row className="g-4 align-items-stretch">
+        <Container fluid className="px-0 px-sm-2 px-md-4 my-3">
+  <Row className="g-0 g-md-4 align-items-stretch">
+    
     {/* LEFT — Visit Our Store */}
-    <Col xs={12} lg={6}>
+    <Col xs={12} lg={6} className="mb-3 mb-lg-0">
       <VisitOurStore settings={settings} />
     </Col>
 
