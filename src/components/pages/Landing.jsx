@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Carousel, Spinner } from 'react-bootstrap';
 import axios from 'axios';
 
 import CategoryStrip from '../../components/landing/CategoryStrip';
@@ -21,6 +21,7 @@ export default function Landing() {
   const [products, setProducts] = useState([]);
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [settingsLoaded, setSettingsLoaded] = useState(false); // 👈 NEW
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search') || '';
   const category = searchParams.get('category') || '';
@@ -39,8 +40,22 @@ export default function Landing() {
   useEffect(() => {
     axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
       .then(res => setSettings(res.data))
-      .catch(() => setSettings({}));
+      .catch(() => setSettings({}))
+      .finally(() => setSettingsLoaded(true)); // 👈 NEW
   }, []);
+
+  // 🔄 Full Page Loader — settings येईपर्यंत काहीच दाखवायचं नाही
+  if (!settingsLoaded) {
+    return (
+      <div
+        className="d-flex flex-column align-items-center justify-content-center"
+        style={{ minHeight: '70vh', gap: '1rem' }}
+      >
+        <Spinner animation="border" style={{ color: '#1e40af', width: '3rem', height: '3rem' }} />
+        <p className="text-muted mb-0 fw-semibold">Loading...</p>
+      </div>
+    );
+  }
 
   const isFiltering = search || category;
 
