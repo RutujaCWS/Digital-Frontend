@@ -14,7 +14,7 @@ export default function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
+    axios.get('https://digital-backend-fv2v.onrender.com/api/site-settings')
       .then(r => setSettings(r.data))
       .catch(() => {});
   }, []);

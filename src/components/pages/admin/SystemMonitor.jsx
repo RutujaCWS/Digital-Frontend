@@ -43,13 +43,13 @@ export default function SystemMonitor() {
     setLoading(true);
     Promise.allSettled([
       axios
-        .get('https://digital-backend-phi.vercel.app/api/system/health', { headers })
+        .get('https://digital-backend-fv2v.onrender.com/api/system/health', { headers })
         .then(r => setHealth(r.data)),
       axios
-        .get('https://digital-backend-phi.vercel.app/api/system/stats', { headers })
+        .get('https://digital-backend-fv2v.onrender.com/api/system/stats', { headers })
         .then(r => setStats(r.data)),
       axios
-        .get('https://digital-backend-phi.vercel.app/api/system/logs?limit=100', { headers })
+        .get('https://digital-backend-fv2v.onrender.com/api/system/logs?limit=100', { headers })
         .then(r => setLogs(r.data || []))
     ]).finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps

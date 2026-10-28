@@ -11,7 +11,7 @@ export default function CategoryStrip() {
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    axios.get('https://digital-backend-phi.vercel.app/api/categories')
+    axios.get('https://digital-backend-fv2v.onrender.com/api/categories')
       .then(res => {
         if (res.data && res.data.length > 0) {
           setCategories(res.data);

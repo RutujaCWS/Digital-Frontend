@@ -71,7 +71,7 @@ export default function StaffManagement() {
   const load = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-phi.vercel.app/api/staff', { headers })
+      .get('https://digital-backend-fv2v.onrender.com/api/staff', { headers })
       .then(r => setStaff(r.data || []))
       .catch(() => setStaff([]))
       .finally(() => setLoading(false));
@@ -115,7 +115,7 @@ export default function StaffManagement() {
     setSaving(true);
     try {
       const { data } = await axios.post(
-        'https://digital-backend-phi.vercel.app/api/staff',
+        'https://digital-backend-fv2v.onrender.com/api/staff',
         form,
         { headers }
       );
@@ -139,7 +139,7 @@ export default function StaffManagement() {
     if (!window.confirm(`Are you sure you want to ${action} ${s.name}?`)) return;
     try {
       const { data } = await axios.put(
-        `https://digital-backend-phi.vercel.app/api/staff/${s._id}/toggle`,
+        `https://digital-backend-fv2v.onrender.com/api/staff/${s._id}/toggle`,
         {},
         { headers }
       );
@@ -184,7 +184,7 @@ export default function StaffManagement() {
       if (!payload.password) delete payload.password;
 
       const { data } = await axios.put(
-        `https://digital-backend-phi.vercel.app/api/staff/${current._id}`,
+        `https://digital-backend-fv2v.onrender.com/api/staff/${current._id}`,
         payload,
         { headers }
       );
@@ -205,7 +205,7 @@ export default function StaffManagement() {
   const handleDelete = async (s) => {
     if (!window.confirm(`Permanently delete ${s.name}? This cannot be undone.`)) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/staff/${s._id}/permanent`, {
+      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/staff/${s._id}/permanent`, {
         headers
       });
       setMsg('✅ Staff permanently deleted');

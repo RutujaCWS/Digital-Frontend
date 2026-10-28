@@ -31,8 +31,8 @@ export default function BackOfficeSupport() {
   const headers = { Authorization: `Bearer ${token}` };
 
   const load = () => {
-    axios.get('https://digital-backend-phi.vercel.app/api/support/triage', { headers }).then(r => setTickets(r.data));
-    axios.get('https://digital-backend-phi.vercel.app/api/staff/meta/network-engineers', { headers }).then(r => setEngineers(r.data));
+    axios.get('https://digital-backend-fv2v.onrender.com/api/support/triage', { headers }).then(r => setTickets(r.data));
+    axios.get('https://digital-backend-fv2v.onrender.com/api/staff/meta/network-engineers', { headers }).then(r => setEngineers(r.data));
   };
 
   useEffect(() => { load(); }, []);
@@ -61,7 +61,7 @@ export default function BackOfficeSupport() {
   const handleAssign = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://digital-backend-phi.vercel.app/api/support/${current._id}/assign`, assignForm, { headers });
+      await axios.put(`https://digital-backend-fv2v.onrender.com/api/support/${current._id}/assign`, assignForm, { headers });
       setShowAssign(false);
       setMsg('✅ Ticket assigned');
       load();
@@ -75,7 +75,7 @@ export default function BackOfficeSupport() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`https://digital-backend-phi.vercel.app/api/support/${current._id}`, form, { headers });
+      await axios.put(`https://digital-backend-fv2v.onrender.com/api/support/${current._id}`, form, { headers });
       setShowEdit(false);
       setMsg('✅ Ticket updated');
       load();
@@ -90,7 +90,7 @@ export default function BackOfficeSupport() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this ticket?')) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/support/${id}`, { headers });
+      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/support/${id}`, { headers });
       setMsg('✅ Ticket deleted');
       load();
       setTimeout(() => setMsg(''), 4000);

@@ -24,7 +24,7 @@ export default function Orders() {
   const load = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-phi.vercel.app/api/orders/myorders', {
+      .get('https://digital-backend-fv2v.onrender.com/api/orders/myorders', {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setOrders(res.data || []))
@@ -44,7 +44,7 @@ export default function Orders() {
     if (!window.confirm('Cancel this order?')) return;
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/orders/${id}/cancel`,
+        `https://digital-backend-fv2v.onrender.com/api/orders/${id}/cancel`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

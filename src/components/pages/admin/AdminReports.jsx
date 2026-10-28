@@ -22,7 +22,7 @@ export default function AdminReports() {
   useEffect(() => {
     setLoading(true);
     axios
-      .get('https://digital-backend-phi.vercel.app/api/orders/admin/reports', { headers })
+      .get('https://digital-backend-fv2v.onrender.com/api/orders/admin/reports', { headers })
       .then(r => setReports(r.data || []))
       .catch(() => setReports([]))
       .finally(() => setLoading(false));

@@ -56,7 +56,7 @@ export default function AdminOffers() {
 
   const load = () => {
     setLoading(true);
-    axios.get('https://digital-backend-phi.vercel.app/api/special-offers', { headers })
+    axios.get('https://digital-backend-fv2v.onrender.com/api/special-offers', { headers })
       .then(r => setOffers(r.data || []))
       .catch(() => setOffers([]))
       .finally(() => setLoading(false));
@@ -64,9 +64,9 @@ export default function AdminOffers() {
 
   useEffect(() => {
     load();
-    axios.get('https://digital-backend-phi.vercel.app/api/categories').then(r => setCategories(r.data || [])).catch(() => {});
-    axios.get('https://digital-backend-phi.vercel.app/api/brands').then(r => setBrands(r.data || [])).catch(() => {});
-    axios.get('https://digital-backend-phi.vercel.app/api/products').then(r => setProducts(r.data || [])).catch(() => {});
+    axios.get('https://digital-backend-fv2v.onrender.com/api/categories').then(r => setCategories(r.data || [])).catch(() => {});
+    axios.get('https://digital-backend-fv2v.onrender.com/api/brands').then(r => setBrands(r.data || [])).catch(() => {});
+    axios.get('https://digital-backend-fv2v.onrender.com/api/products').then(r => setProducts(r.data || [])).catch(() => {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -117,10 +117,10 @@ export default function AdminOffers() {
       };
 
       if (editing) {
-        await axios.put(`https://digital-backend-phi.vercel.app/api/special-offers/${editing}`, payload, { headers });
+        await axios.put(`https://digital-backend-fv2v.onrender.com/api/special-offers/${editing}`, payload, { headers });
         setMsg('✅ Offer updated');
       } else {
-        await axios.post('https://digital-backend-phi.vercel.app/api/special-offers', payload, { headers });
+        await axios.post('https://digital-backend-fv2v.onrender.com/api/special-offers', payload, { headers });
         setMsg('✅ Offer created');
       }
       setShow(false);
@@ -135,7 +135,7 @@ export default function AdminOffers() {
 
   const handleToggle = async (id) => {
     try {
-      await axios.put(`https://digital-backend-phi.vercel.app/api/special-offers/${id}/toggle`, {}, { headers });
+      await axios.put(`https://digital-backend-fv2v.onrender.com/api/special-offers/${id}/toggle`, {}, { headers });
       load();
     } catch (err) {
       alert(err.response?.data?.message || 'Failed');
@@ -145,7 +145,7 @@ export default function AdminOffers() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this offer?')) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/special-offers/${id}`, { headers });
+      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/special-offers/${id}`, { headers });
       setMsg('✅ Offer deleted');
       load();
       setTimeout(() => setMsg(''), 3000);

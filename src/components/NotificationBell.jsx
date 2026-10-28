@@ -19,7 +19,7 @@ export default function NotificationBell() {
   
     try {
       const res = await axios.get(
-        `https://digital-backend-phi.vercel.app/api/notifications/${userId}`,
+        `https://digital-backend-fv2v.onrender.com/api/notifications/${userId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setNotifications(Array.isArray(res.data) ? res.data : []);
@@ -59,7 +59,7 @@ export default function NotificationBell() {
   
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/notifications/${n._id}/read`,
+        `https://digital-backend-fv2v.onrender.com/api/notifications/${n._id}/read`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );

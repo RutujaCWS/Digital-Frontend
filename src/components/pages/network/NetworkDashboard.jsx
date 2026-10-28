@@ -19,8 +19,8 @@ export default function NetworkDashboard() {
   const headers = { Authorization: `Bearer ${token}` };
 
   const load = () => {
-    axios.get('https://digital-backend-phi.vercel.app/api/support/assigned', { headers }).then(r => setTickets(r.data));
-    axios.get('https://digital-backend-phi.vercel.app/api/system/health', { headers }).then(r => setHealth(r.data)).catch(() => {});
+    axios.get('https://digital-backend-fv2v.onrender.com/api/support/assigned', { headers }).then(r => setTickets(r.data));
+    axios.get('https://digital-backend-fv2v.onrender.com/api/system/health', { headers }).then(r => setHealth(r.data)).catch(() => {});
   };
 
   useEffect(() => { load(); }, []);
@@ -34,7 +34,7 @@ export default function NetworkDashboard() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://digital-backend-phi.vercel.app/api/support/${current._id}/status`, form, { headers });
+      await axios.put(`https://digital-backend-fv2v.onrender.com/api/support/${current._id}/status`, form, { headers });
       setShow(false);
       setMsg('✅ Ticket updated');
       load();

@@ -76,7 +76,7 @@ export default function AdminContacts() {
     if (typeFilter) params.append('enquiryType', typeFilter);
 
     axios
-      .get(`https://digital-backend-phi.vercel.app/api/contact?${params}`, { headers })
+      .get(`https://digital-backend-fv2v.onrender.com/api/contact?${params}`, { headers })
       .then(r => setMessages(r.data || []))
       .catch(() => setMessages([]))
       .finally(() => setLoading(false));
@@ -84,7 +84,7 @@ export default function AdminContacts() {
 
   const loadStats = () => {
     axios
-      .get('https://digital-backend-phi.vercel.app/api/contact/stats', { headers })
+      .get('https://digital-backend-fv2v.onrender.com/api/contact/stats', { headers })
       .then(r => setStats(r.data || {}))
       .catch(() => {});
   };
@@ -152,7 +152,7 @@ export default function AdminContacts() {
     if (m.status === 'New') {
       try {
         await axios.put(
-          `https://digital-backend-phi.vercel.app/api/contact/${m._id}/status`,
+          `https://digital-backend-fv2v.onrender.com/api/contact/${m._id}/status`,
           { status: 'Read' },
           { headers }
         );
@@ -166,7 +166,7 @@ export default function AdminContacts() {
     setSaving(true);
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/contact/${current._id}/status`,
+        `https://digital-backend-fv2v.onrender.com/api/contact/${current._id}/status`,
         { status: 'Replied', adminNote },
         { headers }
       );
@@ -185,7 +185,7 @@ export default function AdminContacts() {
   const handleClose = async (id) => {
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/contact/${id}/status`,
+        `https://digital-backend-fv2v.onrender.com/api/contact/${id}/status`,
         { status: 'Closed' },
         { headers }
       );
@@ -199,7 +199,7 @@ export default function AdminContacts() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this message permanently?')) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/contact/${id}`, { headers });
+      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/contact/${id}`, { headers });
       setMsg('✅ Message deleted');
       setShowView(false);
       load();

@@ -30,7 +30,7 @@ export default function ImageUpload({ value, onChange, label = 'Image' }) {
       formData.append('image', file);
 
       const { data } = await axios.post(
-        'https://digital-backend-phi.vercel.app/api/upload/image',
+        'https://digital-backend-fv2v.onrender.com/api/upload/image',
         formData,
         {
           headers: {

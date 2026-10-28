@@ -16,7 +16,7 @@ export default function BackOfficeProducts() {
   const { token } = useAuth();
   const headers = { Authorization: `Bearer ${token}` };
 
-  const load = () => axios.get('https://digital-backend-phi.vercel.app/api/products').then(r => setProducts(r.data));
+  const load = () => axios.get('https://digital-backend-fv2v.onrender.com/api/products').then(r => setProducts(r.data));
   useEffect(() => { load(); }, []);
 
   const handleSave = async (e) => {
@@ -30,8 +30,8 @@ export default function BackOfficeProducts() {
       gifts: form.hasGift && form.giftName ? [{ name: form.giftName, value: +form.giftValue || 0 }] : []
     };
 
-    if (editing) await axios.put(`https://digital-backend-phi.vercel.app/api/products/${editing}`, payload, { headers });
-    else await axios.post('https://digital-backend-phi.vercel.app/api/products', payload, { headers });
+    if (editing) await axios.put(`https://digital-backend-fv2v.onrender.com/api/products/${editing}`, payload, { headers });
+    else await axios.post('https://digital-backend-fv2v.onrender.com/api/products', payload, { headers });
 
     setShow(false); setForm(emptyForm); setEditing(null); load();
   };
