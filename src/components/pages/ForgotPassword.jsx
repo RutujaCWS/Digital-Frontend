@@ -30,7 +30,7 @@ export default function ForgotPassword() {
 
     try {
       const { data } = await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/auth/verify-email',
+        'https://digital-backend-phi.vercel.app/api/auth/verify-email',
         { email }
       );
       setUserName(data.name);
@@ -62,7 +62,7 @@ export default function ForgotPassword() {
 
     try {
       const { data } = await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/auth/reset-password',
+        'https://digital-backend-phi.vercel.app/api/auth/reset-password',
         { email, newPassword, confirmPassword }
       );
       setSuccess(data.message);

@@ -7,7 +7,7 @@ export default function BrandStrip() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://digital-backend-fv2v.onrender.com/api/brands')
+    axios.get('https://digital-backend-phi.vercel.app/api/brands')
       .then(res => {
         if (res.data && Array.isArray(res.data)) {
           setBrands(res.data);

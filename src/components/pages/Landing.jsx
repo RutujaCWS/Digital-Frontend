@@ -32,13 +32,13 @@ export default function Landing() {
     if (search) params.append('search', search);
     if (category) params.append('category', category);
 
-    axios.get(`https://digital-backend-fv2v.onrender.com/api/products?${params}`)
+    axios.get(`https://digital-backend-phi.vercel.app/api/products?${params}`)
       .then(res => setProducts(res.data))
       .finally(() => setLoading(false));
   }, [search, category]);
 
   useEffect(() => {
-    axios.get('https://digital-backend-fv2v.onrender.com/api/site-settings')
+    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
       .then(res => setSettings(res.data))
       .catch(() => setSettings({}))
       .finally(() => setSettingsLoaded(true)); // 👈 NEW

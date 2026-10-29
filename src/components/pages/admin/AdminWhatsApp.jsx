@@ -16,7 +16,7 @@ export default function AdminWhatsApp() {
 
   const { token } = useAuth();
   const headers = { Authorization: `Bearer ${token}` };
-  const API = 'https://digital-backend-fv2v.onrender.com/api/whatsapp';
+  const API = 'https://digital-backend-phi.vercel.app/api/whatsapp';
 
   const fetchStatus = useCallback(() => {
     if (!token) return;

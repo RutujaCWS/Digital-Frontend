@@ -20,7 +20,7 @@ export default function ProductDetail() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`https://digital-backend-fv2v.onrender.com/api/products/${id}`)
+    axios.get(`https://digital-backend-phi.vercel.app/api/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(() => setProduct(null))
       .finally(() => setLoading(false));

@@ -57,7 +57,7 @@ export default function Support() {
 
   const load = () => {
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/support/my', { headers })
+      .get('https://digital-backend-phi.vercel.app/api/support/my', { headers })
       .then(r => setTickets(r.data || []))
       .catch(() => setTickets([]));
   };
@@ -106,7 +106,7 @@ export default function Support() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('https://digital-backend-fv2v.onrender.com/api/support', form, { headers });
+      await axios.post('https://digital-backend-phi.vercel.app/api/support', form, { headers });
       setForm({
         ...emptyForm,
         contactNumber: user?.phone || '',
@@ -148,7 +148,7 @@ export default function Support() {
     setLoading(true);
     try {
       await axios.put(
-        `https://digital-backend-fv2v.onrender.com/api/support/${editing._id}`,
+        `https://digital-backend-phi.vercel.app/api/support/${editing._id}`,
         form,
         { headers }
       );
@@ -172,7 +172,7 @@ export default function Support() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this ticket?')) return;
     try {
-      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/support/${id}`, {
+      await axios.delete(`https://digital-backend-phi.vercel.app/api/support/${id}`, {
         headers
       });
       setMsg('✅ Ticket deleted');

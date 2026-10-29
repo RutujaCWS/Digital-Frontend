@@ -32,7 +32,7 @@ export default function VideoUpload({ value, onChange, label = 'Video', height =
       formData.append('video', file);
 
       const { data } = await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/upload/video',
+        'https://digital-backend-phi.vercel.app/api/upload/video',
         formData,
         {
           headers: {

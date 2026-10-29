@@ -34,7 +34,7 @@ export default function SiteSettings() {
 
   useEffect(() => {
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/site-settings')
+      .get('https://digital-backend-phi.vercel.app/api/site-settings')
       .then(res => {
         const data = res.data;
         setForm({
@@ -177,7 +177,7 @@ export default function SiteSettings() {
     setSaving(true);
     setMsg('');
     try {
-      await axios.put('https://digital-backend-fv2v.onrender.com/api/site-settings', form, { headers });
+      await axios.put('https://digital-backend-phi.vercel.app/api/site-settings', form, { headers });
       setMsg('✅ Settings saved successfully!');
       setTimeout(() => setMsg(''), 4000);
     } catch (err) {

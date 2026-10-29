@@ -7,7 +7,7 @@ export default function FeatureBar() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://digital-backend-fv2v.onrender.com/api/site-settings')
+    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
       .then(res => {
         if (res.data?.features && res.data.features.length > 0) {
           const sorted = [...res.data.features].sort(

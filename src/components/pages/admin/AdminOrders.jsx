@@ -52,8 +52,8 @@ export default function AdminOrders() {
   const load = () => {
     setLoading(true);
     const url = filter
-      ? `https://digital-backend-fv2v.onrender.com/api/orders?status=${filter}`
-      : 'https://digital-backend-fv2v.onrender.com/api/orders';
+      ? `https://digital-backend-phi.vercel.app/api/orders?status=${filter}`
+      : 'https://digital-backend-phi.vercel.app/api/orders';
     axios
       .get(url, { headers })
       .then(r => setOrders(r.data || []))
@@ -124,7 +124,7 @@ export default function AdminOrders() {
     if (!window.confirm(`Mark this order as ${isPaid ? 'PAID' : 'UNPAID'}?`)) return;
     try {
       await axios.put(
-        `https://digital-backend-fv2v.onrender.com/api/orders/${id}/payment`,
+        `https://digital-backend-phi.vercel.app/api/orders/${id}/payment`,
         { isPaid },
         { headers }
       );
@@ -140,7 +140,7 @@ export default function AdminOrders() {
     if (!window.confirm(`Change status to "${status}"?`)) return;
     try {
       await axios.put(
-        `https://digital-backend-fv2v.onrender.com/api/orders/${id}/status`,
+        `https://digital-backend-phi.vercel.app/api/orders/${id}/status`,
         { status },
         { headers }
       );

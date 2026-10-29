@@ -29,7 +29,7 @@ export default function ReviewsSection() {
   const loadReviews = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/reviews')
+      .get('https://digital-backend-phi.vercel.app/api/reviews')
       .then(r => setData(r.data || { reviews: [], total: 0, avgRating: 0 }))
       .catch(() => setData({ reviews: [], total: 0, avgRating: 0 }))
       .finally(() => setLoading(false));
@@ -45,7 +45,7 @@ export default function ReviewsSection() {
       return;
     }
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/reviews/mine', {
+      .get('https://digital-backend-phi.vercel.app/api/reviews/mine', {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(r => setMyReview(r.data?.review || null))
@@ -84,13 +84,13 @@ export default function ReviewsSection() {
     setSubmitting(true);
     try {
       await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/reviews',
+        'https://digital-backend-phi.vercel.app/api/reviews',
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setShowModal(false);
       loadReviews();
-      const r = await axios.get('https://digital-backend-fv2v.onrender.com/api/reviews/mine', {
+      const r = await axios.get('https://digital-backend-phi.vercel.app/api/reviews/mine', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMyReview(r.data?.review || null);
@@ -104,7 +104,7 @@ export default function ReviewsSection() {
   const handleDelete = async () => {
     if (!window.confirm('Delete your review?')) return;
     try {
-      await axios.delete('https://digital-backend-fv2v.onrender.com/api/reviews/mine', {
+      await axios.delete('https://digital-backend-phi.vercel.app/api/reviews/mine', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMyReview(null);

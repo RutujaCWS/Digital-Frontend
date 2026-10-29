@@ -71,7 +71,7 @@ export default function AdminCategories() {
   const load = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/categories/admin/all', { headers })
+      .get('https://digital-backend-phi.vercel.app/api/categories/admin/all', { headers })
       .then(r => setCategories(r.data || []))
       .catch(() => setCategories([]))
       .finally(() => setLoading(false));
@@ -134,14 +134,14 @@ export default function AdminCategories() {
     try {
       if (editing) {
         await axios.put(
-          `https://digital-backend-fv2v.onrender.com/api/categories/${editing}`,
+          `https://digital-backend-phi.vercel.app/api/categories/${editing}`,
           form,
           { headers }
         );
         setMsg('✅ Category updated');
       } else {
         await axios.post(
-          'https://digital-backend-fv2v.onrender.com/api/categories',
+          'https://digital-backend-phi.vercel.app/api/categories',
           form,
           { headers }
         );
@@ -160,7 +160,7 @@ export default function AdminCategories() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this category?')) return;
     try {
-      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/categories/${id}`, {
+      await axios.delete(`https://digital-backend-phi.vercel.app/api/categories/${id}`, {
         headers
       });
       setMsg('✅ Category deleted');
@@ -174,7 +174,7 @@ export default function AdminCategories() {
   const toggleActive = async (cat) => {
     try {
       await axios.put(
-        `https://digital-backend-fv2v.onrender.com/api/categories/${cat._id}`,
+        `https://digital-backend-phi.vercel.app/api/categories/${cat._id}`,
         { ...cat, isActive: !cat.isActive },
         { headers }
       );
@@ -197,7 +197,7 @@ export default function AdminCategories() {
     const orderedIds = updated.map(c => c._id);
     try {
       await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/categories/reorder',
+        'https://digital-backend-phi.vercel.app/api/categories/reorder',
         { orderedIds },
         { headers }
       );
@@ -209,7 +209,7 @@ export default function AdminCategories() {
   const quickAddPreset = async (preset) => {
     try {
       await axios.post(
-        'https://digital-backend-fv2v.onrender.com/api/categories',
+        'https://digital-backend-phi.vercel.app/api/categories',
         preset,
         { headers }
       );

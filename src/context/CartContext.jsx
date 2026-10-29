@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
-const API = 'https://digital-backend-fv2v.onrender.com/api/cart';
+const API = 'https://digital-backend-phi.vercel.app/api/cart';
 
 // ✅ Helper: get product id from item (handles both populated object and raw id)
 const getProductId = (item) => {

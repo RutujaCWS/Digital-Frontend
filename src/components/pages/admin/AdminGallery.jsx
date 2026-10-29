@@ -39,7 +39,7 @@ export default function AdminGallery() {
 
   const load = () => {
     setLoading(true);
-    axios.get('https://digital-backend-fv2v.onrender.com/api/gallery/admin/all', { headers })
+    axios.get('https://digital-backend-phi.vercel.app/api/gallery/admin/all', { headers })
       .then(r => setItems(r.data || []))
       .catch(() => setItems([]))
       .finally(() => setLoading(false));
@@ -85,10 +85,10 @@ export default function AdminGallery() {
     setSaving(true);
     try {
       if (editing) {
-        await axios.put(`https://digital-backend-fv2v.onrender.com/api/gallery/${editing}`, form, { headers });
+        await axios.put(`https://digital-backend-phi.vercel.app/api/gallery/${editing}`, form, { headers });
         setMsg('✅ Media updated');
       } else {
-        await axios.post('https://digital-backend-fv2v.onrender.com/api/gallery', form, { headers });
+        await axios.post('https://digital-backend-phi.vercel.app/api/gallery', form, { headers });
         setMsg('✅ Media added');
       }
       closeModal();
@@ -103,7 +103,7 @@ export default function AdminGallery() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this item?')) return;
-    await axios.delete(`https://digital-backend-fv2v.onrender.com/api/gallery/${id}`, { headers });
+    await axios.delete(`https://digital-backend-phi.vercel.app/api/gallery/${id}`, { headers });
     load();
   };
 

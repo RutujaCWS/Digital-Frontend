@@ -42,16 +42,16 @@ export default function AdminDashboard() {
 
     Promise.allSettled([
       axios
-        .get('https://digital-backend-fv2v.onrender.com/api/orders/admin/stats', { headers })
+        .get('https://digital-backend-phi.vercel.app/api/orders/admin/stats', { headers })
         .then(r => setStats(r.data || {})),
       axios
-        .get('https://digital-backend-fv2v.onrender.com/api/support/admin/stats', { headers })
+        .get('https://digital-backend-phi.vercel.app/api/support/admin/stats', { headers })
         .then(r => setSupport(r.data || {})),
       axios
-        .get('https://digital-backend-fv2v.onrender.com/api/staff/meta/stats', { headers })
+        .get('https://digital-backend-phi.vercel.app/api/staff/meta/stats', { headers })
         .then(r => setStaff(r.data || {})),
       axios
-        .get('https://digital-backend-fv2v.onrender.com/api/special-offers', { headers })
+        .get('https://digital-backend-phi.vercel.app/api/special-offers', { headers })
         .then(r => {
           const list = r.data || [];
           const now = new Date();

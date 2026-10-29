@@ -37,7 +37,7 @@ export default function Gallery() {
   // Fetch gallery items
   useEffect(() => {
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/gallery')
+      .get('https://digital-backend-phi.vercel.app/api/gallery')
       .then((r) => setItems(r.data || []))
       .catch(() => setItems([]))
       .finally(() => setLoading(false));

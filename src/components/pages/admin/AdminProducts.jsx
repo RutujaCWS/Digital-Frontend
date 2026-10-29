@@ -80,7 +80,7 @@ export default function AdminProducts() {
   const loadProducts = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/products')
+      .get('https://digital-backend-phi.vercel.app/api/products')
       .then(r => setProducts(r.data || []))
       .catch(() => setProducts([]))
       .finally(() => setLoading(false));
@@ -88,13 +88,13 @@ export default function AdminProducts() {
 
   const loadCategories = () =>
     axios
-      .get('https://digital-backend-fv2v.onrender.com/api/categories')
+      .get('https://digital-backend-phi.vercel.app/api/categories')
       .then(r => setCategories(r.data || []))
       .catch(() => setCategories([]));
 
       const loadBrands = () =>
       axios
-        .get('https://digital-backend-fv2v.onrender.com/api/brands')
+        .get('https://digital-backend-phi.vercel.app/api/brands')
         .then(r => setBrands(r.data || []))
         .catch(() => setBrands([]));
 
@@ -294,10 +294,10 @@ export default function AdminProducts() {
 
     try {
       if (editing) {
-        await axios.put(`https://digital-backend-fv2v.onrender.com/api/products/${editing}`, payload, { headers });
+        await axios.put(`https://digital-backend-phi.vercel.app/api/products/${editing}`, payload, { headers });
         setMsg('✅ Product updated');
       } else {
-        await axios.post('https://digital-backend-fv2v.onrender.com/api/products', payload, { headers });
+        await axios.post('https://digital-backend-phi.vercel.app/api/products', payload, { headers });
         setMsg('✅ Product added');
       }
       setShow(false);
@@ -313,7 +313,7 @@ export default function AdminProducts() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this product?')) return;
     try {
-      await axios.delete(`https://digital-backend-fv2v.onrender.com/api/products/${id}`, { headers });
+      await axios.delete(`https://digital-backend-phi.vercel.app/api/products/${id}`, { headers });
       loadProducts();
     } catch (err) {
       alert(err.response?.data?.message || 'Failed');
