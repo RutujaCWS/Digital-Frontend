@@ -73,7 +73,7 @@ export default function SupportRequests() {
 
   // Loaders
   const loadTriage = () => {
-    axios.get('https://digital-backend-phi.vercel.app/api/support/triage', { headers })
+    axios.get('https://digitalworldkopargaonbackend.vercel.app/api/support/triage', { headers })
       .then(r => setTriageTickets(r.data))
       .catch(() => {});
   };
@@ -81,8 +81,8 @@ export default function SupportRequests() {
   const loadAll = () => {
     setLoading(true);
     const url = filterStatus !== 'All'
-      ? `https://digital-backend-phi.vercel.app/api/support/all?status=${filterStatus}`
-      : 'https://digital-backend-phi.vercel.app/api/support/all';
+      ? `https://digitalworldkopargaonbackend.vercel.app/api/support/all?status=${filterStatus}`
+      : 'https://digitalworldkopargaonbackend.vercel.app/api/support/all';
     axios.get(url, { headers })
       .then(r => setAllTickets(r.data))
       .catch(() => setAllTickets([]))
@@ -90,7 +90,7 @@ export default function SupportRequests() {
   };
 
   const loadEngineers = () => {
-    axios.get('https://digital-backend-phi.vercel.app/api/staff/meta/network-engineers', { headers })
+    axios.get('https://digitalworldkopargaonbackend.vercel.app/api/staff/meta/network-engineers', { headers })
       .then(r => setEngineers(r.data))
       .catch(() => {});
   };
@@ -122,7 +122,7 @@ export default function SupportRequests() {
     setSaving(true);
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/support/${current._id}/status`,
+        `https://digitalworldkopargaonbackend.vercel.app/api/support/${current._id}/status`,
         statusForm,
         { headers }
       );
@@ -144,7 +144,7 @@ export default function SupportRequests() {
 
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/support/${ticket._id}/status`,
+        `https://digitalworldkopargaonbackend.vercel.app/api/support/${ticket._id}/status`,
         { status: newStatus },
         { headers }
       );
@@ -171,7 +171,7 @@ export default function SupportRequests() {
     setSaving(true);
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/support/${current._id}/assign`,
+        `https://digitalworldkopargaonbackend.vercel.app/api/support/${current._id}/assign`,
         assignForm,
         { headers }
       );
@@ -209,7 +209,7 @@ export default function SupportRequests() {
     e.preventDefault();
     setSaving(true);
     try {
-      await axios.put(`https://digital-backend-phi.vercel.app/api/support/${current._id}`, form, { headers });
+      await axios.put(`https://digitalworldkopargaonbackend.vercel.app/api/support/${current._id}`, form, { headers });
       setShowEdit(false);
       setMsg('✅ Ticket updated');
       loadTriage();
@@ -228,7 +228,7 @@ export default function SupportRequests() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this ticket permanently?')) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/support/${id}`, { headers });
+      await axios.delete(`https://digitalworldkopargaonbackend.vercel.app/api/support/${id}`, { headers });
       setMsg('✅ Ticket deleted');
       loadTriage();
       loadAll();

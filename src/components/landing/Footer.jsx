@@ -7,7 +7,7 @@ export default function Footer() {
   const [settings, setSettings] = useState(null);
 
   useEffect(() => {
-    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
+    axios.get('https://digitalworldkopargaonbackend.vercel.app/api/site-settings')
       .then(r => setSettings(r.data))
       .catch(() => {});
   }, []);

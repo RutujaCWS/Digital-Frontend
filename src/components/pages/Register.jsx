@@ -47,7 +47,7 @@ export default function Register() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        'https://digital-backend-phi.vercel.app/api/auth/register',
+        'https://digitalworldkopargaonbackend.vercel.app/api/auth/register',
         form
       );
       login(data.user, data.token);

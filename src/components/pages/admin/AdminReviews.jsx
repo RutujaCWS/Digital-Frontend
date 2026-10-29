@@ -21,8 +21,8 @@ export default function AdminReviews() {
   const load = () => {
     setLoading(true);
     const url = filter === 'all'
-      ? 'https://digital-backend-phi.vercel.app/api/reviews/admin/all'
-      : `https://digital-backend-phi.vercel.app/api/reviews/admin/all?status=${filter}`;
+      ? 'https://digitalworldkopargaonbackend.vercel.app/api/reviews/admin/all'
+      : `https://digitalworldkopargaonbackend.vercel.app/api/reviews/admin/all?status=${filter}`;
 
     axios.get(url, { headers })
       .then(r => setReviews(r.data || []))
@@ -33,7 +33,7 @@ export default function AdminReviews() {
   useEffect(() => { load(); }, [filter]);
 
   const handleApprove = async (id, approve) => {
-    await axios.put(`https://digital-backend-phi.vercel.app/api/reviews/${id}/approve`, { approve }, { headers });
+    await axios.put(`https://digitalworldkopargaonbackend.vercel.app/api/reviews/${id}/approve`, { approve }, { headers });
     setMsg(approve ? '✅ Approved' : '🚫 Unapproved');
     load();
     setTimeout(() => setMsg(''), 3000);
@@ -41,7 +41,7 @@ export default function AdminReviews() {
 
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this review?')) return;
-    await axios.delete(`https://digital-backend-phi.vercel.app/api/reviews/${id}`, { headers });
+    await axios.delete(`https://digitalworldkopargaonbackend.vercel.app/api/reviews/${id}`, { headers });
     setMsg('✅ Deleted');
     load();
     setTimeout(() => setMsg(''), 3000);
@@ -54,7 +54,7 @@ export default function AdminReviews() {
   };
 
   const saveReply = async () => {
-    await axios.put(`https://digital-backend-phi.vercel.app/api/reviews/${current._id}/reply`, { adminReply: replyText }, { headers });
+    await axios.put(`https://digitalworldkopargaonbackend.vercel.app/api/reviews/${current._id}/reply`, { adminReply: replyText }, { headers });
     setReplyModal(false);
     setMsg('✅ Reply saved');
     load();

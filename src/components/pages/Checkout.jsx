@@ -64,7 +64,7 @@ export default function Checkout() {
       }));
 
       axios
-        .post('https://digital-backend-phi.vercel.app/api/special-offers/calculate', {
+        .post('https://digitalworldkopargaonbackend.vercel.app/api/special-offers/calculate', {
           items: cartItems,
           subtotal: itemsPrice
         })
@@ -115,7 +115,7 @@ export default function Checkout() {
     try {
       const { paymentMethod, ...shippingAddress } = form;
       const { data } = await axios.post(
-        'https://digital-backend-phi.vercel.app/api/orders',
+        'https://digitalworldkopargaonbackend.vercel.app/api/orders',
         { shippingAddress, paymentMethod },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -59,7 +59,7 @@ export default function AdminBrands() {
   const load = () => {
     setLoading(true);
     axios
-      .get('https://digital-backend-phi.vercel.app/api/brands/admin/all', { headers })
+      .get('https://digitalworldkopargaonbackend.vercel.app/api/brands/admin/all', { headers })
       .then(r => setBrands(r.data || []))
       .catch(() => setBrands([]))
       .finally(() => setLoading(false));
@@ -149,10 +149,10 @@ export default function AdminBrands() {
     setSaving(true);
     try {
       if (editing) {
-        await axios.put(`https://digital-backend-phi.vercel.app/api/brands/${editing}`, form, { headers });
+        await axios.put(`https://digitalworldkopargaonbackend.vercel.app/api/brands/${editing}`, form, { headers });
         setMsg('✅ Brand updated');
       } else {
-        await axios.post('https://digital-backend-phi.vercel.app/api/brands', form, { headers });
+        await axios.post('https://digitalworldkopargaonbackend.vercel.app/api/brands', form, { headers });
         setMsg('✅ Brand added');
       }
       setShow(false);
@@ -168,7 +168,7 @@ export default function AdminBrands() {
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this brand?')) return;
     try {
-      await axios.delete(`https://digital-backend-phi.vercel.app/api/brands/${id}`, { headers });
+      await axios.delete(`https://digitalworldkopargaonbackend.vercel.app/api/brands/${id}`, { headers });
       setMsg('✅ Brand deleted');
       load();
       setTimeout(() => setMsg(''), 3000);
@@ -180,7 +180,7 @@ export default function AdminBrands() {
   const toggleActive = async (brand) => {
     try {
       await axios.put(
-        `https://digital-backend-phi.vercel.app/api/brands/${brand._id}`,
+        `https://digitalworldkopargaonbackend.vercel.app/api/brands/${brand._id}`,
         { isActive: !brand.isActive },
         { headers }
       );
@@ -194,7 +194,7 @@ export default function AdminBrands() {
 
   const quickAddPreset = async (name) => {
     try {
-      await axios.post('https://digital-backend-phi.vercel.app/api/brands', { name }, { headers });
+      await axios.post('https://digitalworldkopargaonbackend.vercel.app/api/brands', { name }, { headers });
       load();
     } catch (err) {
       alert(err.response?.data?.message || 'Failed');

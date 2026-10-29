@@ -11,7 +11,7 @@ export default function SpecialOffers() {
 
   useEffect(() => {
     axios
-      .get('https://digital-backend-phi.vercel.app/api/special-offers/active')
+      .get('https://digitalworldkopargaonbackend.vercel.app/api/special-offers/active')
       .then(r => setOffers(r.data || []))
       .catch(() => setOffers([]))
       .finally(() => setLoading(false));

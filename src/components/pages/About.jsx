@@ -8,7 +8,7 @@ export default function About() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
+    axios.get('https://digitalworldkopargaonbackend.vercel.app/api/site-settings')
       .then(r => setSettings(r.data))
       .catch(() => setSettings({}))
       .finally(() => setLoading(false));

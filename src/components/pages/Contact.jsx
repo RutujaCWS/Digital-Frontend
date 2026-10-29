@@ -35,7 +35,7 @@ export default function Contact() {
   const [serverMsg, setServerMsg] = useState('');
 
   useEffect(() => {
-    axios.get('https://digital-backend-phi.vercel.app/api/site-settings')
+    axios.get('https://digitalworldkopargaonbackend.vercel.app/api/site-settings')
       .then(res => setSettings(res.data))
       .catch(() => setSettings({}))
       .finally(() => setLoadingSettings(false));
@@ -94,7 +94,7 @@ export default function Contact() {
     setSubmitting(true);
 
     try {
-      await axios.post('https://digital-backend-phi.vercel.app/api/contact', form);
+      await axios.post('https://digitalworldkopargaonbackend.vercel.app/api/contact', form);
 
       setForm(INITIAL_FORM);
       setErrors({});
@@ -121,7 +121,7 @@ export default function Contact() {
   //   // ═══════════════════════════════════════════
   //   let savedToDB = false;
   //   try {
-  //     await axios.post('https://digital-backend-phi.vercel.app/api/contact', form);
+  //     await axios.post('https://digitalworldkopargaonbackend.vercel.app/api/contact', form);
   //     savedToDB = true;
   //   } catch (err) {
   //     console.error('DB save failed:', err);

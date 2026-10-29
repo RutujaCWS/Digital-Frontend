@@ -53,7 +53,7 @@ export default function Cart() {
       }));
 
       axios
-        .post('https://digital-backend-phi.vercel.app/api/special-offers/calculate', {
+        .post('https://digitalworldkopargaonbackend.vercel.app/api/special-offers/calculate', {
           items: cartItems,
           subtotal
         })
