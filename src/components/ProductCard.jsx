@@ -110,21 +110,43 @@ export default function ProductCard({ product }) {
           <Card.Title style={{ fontSize: '.95rem' }} className="text-truncate mb-2">
             {product.name}
           </Card.Title>
-          <div className="mb-2">
+          {/* <div className="mb-2">
             <Badge bg="success">{product.rating} ★</Badge>
             <small className="text-muted ms-2">({product.numReviews})</small>
-          </div>
-          <div className="mb-2">
-            <span className="fw-bold fs-5">₹{product.price.toLocaleString()}</span>
-            {product.originalPrice && (
-              <>
-                <small className="text-muted text-decoration-line-through ms-2">
-                  ₹{product.originalPrice.toLocaleString()}
-                </small>
-                <div className="text-success small fw-bold">{discount}% off</div>
-              </>
-            )}
-          </div>
+          </div> */}
+         
+<div className="mb-2">
+  <div className="d-flex flex-wrap align-items-baseline gap-1">
+    <span
+      className="fw-bold"
+      style={{
+        fontSize: 'clamp(0.85rem, 3.5vw, 1.15rem)',
+        whiteSpace: 'nowrap'
+      }}
+    >
+      ₹{product.price.toLocaleString('en-IN')}
+    </span>
+
+    {product.originalPrice && (
+      <small
+        className="text-muted text-decoration-line-through"
+        style={{
+          fontSize: '0.7rem',
+          whiteSpace: 'nowrap'
+        }}
+      >
+        ₹{product.originalPrice.toLocaleString('en-IN')}
+      </small>
+    )}
+  </div>
+
+  {product.originalPrice && (
+    <div className="text-success small fw-bold">
+      {discount}% off
+    </div>
+  )}
+</div>
+
 
           <Button
             variant={outOfStock ? 'secondary' : added ? 'success' : 'warning'}
@@ -139,7 +161,7 @@ export default function ProductCard({ product }) {
               ? 'ADDING...'
               : added
               ? '✅ ADDED!'
-              : '🛒 ADD TO CART'}
+              : 'ADD TO CART'}
           </Button>
         </Card.Body>
       </Link>
